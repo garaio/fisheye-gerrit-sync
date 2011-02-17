@@ -1,0 +1,13 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <servlet name="${project.artifactId}" class="com.garaio.fisheye.plugin.gerrit.SyncGerritProjectsServlet" key="gerrit-sync-servlet">
+        <description>Synchronized the projects currently present in Gerrit Code Review to FishEye.</description>
+        <url-pattern>/com.garaio.fisheye.gerrit/sync</url-pattern>
+    </servlet>
+
+</atlassian-plugin>

@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.garaio.fisheye.plugin.gerrit</groupId>
+    <artifactId>autoRepositoryAdd</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <organization>
+        <name>GARAIO AG</name>
+        <url>http://www.garaio.com/</url>
+    </organization>
+
+    <name>autoRepositoryAdd</name>
+    <description>Automatically adds all Projects from a Gerrit Code Review Instance as FishEye Repositories.</description>
+    <packaging>atlassian-plugin</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.fisheye</groupId>
+            <artifactId>atlassian-fisheye-api</artifactId>
+            <version>${fecru.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.ethz.ssh2</groupId>
+            <artifactId>ganymed</artifactId>
+            <version>build251beta1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-fecru-plugin</artifactId>
+                <version>3.2.4</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <productVersion>${fecru.version}</productVersion>
+                    <productDataVersion>${fecru.data.version}</productDataVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <fecru.version>2.5.1-20110210002819</fecru.version>
+        <fecru.data.version>2.5.1-20110210002819</fecru.data.version>
+    </properties>
+
+</project>
