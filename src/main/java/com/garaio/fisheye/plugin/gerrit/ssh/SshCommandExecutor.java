@@ -30,7 +30,7 @@ public class SshCommandExecutor {
         conn.connect();
         try {
 
-            boolean authOk = conn.authenticateWithPublicKey(configuration.getUserName(), configuration.getPrivateKey().toCharArray(), configuration.getPassPhrase());
+            boolean authOk = conn.authenticateWithPublicKey(configuration.getUserName(), configuration.getPrivateKey().toCharArray(), "");
             if (!authOk) {
                 throw new IOException("Authentication failed!");
             }
@@ -42,8 +42,6 @@ public class SshCommandExecutor {
                 InputStream stdout = new StreamGobbler(sess.getStdout());
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(stdout));
-
-                System.out.println("Here is some information about the remote host:");
 
                 while (true) {
                     String line = br.readLine();

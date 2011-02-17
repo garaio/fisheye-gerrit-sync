@@ -5,7 +5,6 @@ public class SshConfiguration {
     int port;
     String userName;
     String privateKey;
-    String passPhrase;
 
     public String getHostName() {
         return hostName;
@@ -37,13 +36,5 @@ public class SshConfiguration {
 
     public void setPrivateKey(String privateKey) {
         this.privateKey = privateKey;
-    }
-
-    public String getPassPhrase() {
-        return passPhrase;
-    }
-
-    public void setPassPhrase(String passPhrase) {
-        this.passPhrase = passPhrase;
     }
 }
