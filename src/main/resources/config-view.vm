@@ -1,0 +1,42 @@
+#* @vtlvariable name="sshConfig" type="com.garaio.fisheye.plugin.gerrit.ssh.SshConfiguration" *#
+<html>
+<head>
+    <meta name='profile.tab.key' content='com.garaio.fisheye.plugin.gerrit:gerrit-config-servlet'/>
+</head>
+<body>
+<div>
+    <form action="./config" method="post">
+        <table class="dialog-prefs" cellspacing="0">
+            <thead>
+            <tr>
+                <th colspan="2"><h3>SSH Settings for Gerrit Code Review Access</h3></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="tdLabel"><label for="hostName" class="label">Host Name:</label></td>
+                <td><span id="hostName">${sshConfig.getHostName()}</span></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="port" class="label">Port:</label></td>
+                <td><span id="port">${sshConfig.getPort()}</span></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="userName" class="label">User Name:</label></td>
+                <td><span id="userName">${sshConfig.getUserName()}</span></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="privateKey" class="label">Private Key:</label></td>
+                <td><pre id="privateKey">${sshConfig.getPrivateKey()}</pre></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="action"><input type="submit" value="Edit"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="./sync" target="_blank">Sync Gerrit Code Review projects to FishEye repositories now</a></p>
+    </form>
+</div>
+</body>
+</html>

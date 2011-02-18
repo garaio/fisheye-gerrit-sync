@@ -5,9 +5,22 @@
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
 
+    <web-item key="config-link" section="system.admin/global">
+       <link>/plugins/servlet/com.garaio.fisheye.gerrit/config</link>
+       <label key="Gerrit Configuration"/>
+    </web-item>
+
     <servlet name="${project.artifactId}" class="com.garaio.fisheye.plugin.gerrit.SyncGerritProjectsServlet" key="gerrit-sync-servlet">
-        <description>Synchronized the projects currently present in Gerrit Code Review to FishEye.</description>
+        <description>Synchronizes the projects currently present in Gerrit Code Review to FishEye.</description>
         <url-pattern>/com.garaio.fisheye.gerrit/sync</url-pattern>
     </servlet>
 
+    <servlet name="${project.artifactId}" class="com.garaio.fisheye.plugin.gerrit.ConfigGerritProjectsServlet" key="gerrit-config-servlet" adminLevel="system">
+        <description>Configures the connection to Gerrit Code Review.</description>
+        <url-pattern>/com.garaio.fisheye.gerrit/config</url-pattern>
+    </servlet>
+
+    <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" />
+    <component-import key="velocity-renderer" interface="com.atlassian.templaterenderer.velocity.one.six.VelocityTemplateRenderer" />
+                       
 </atlassian-plugin>

@@ -1,0 +1,45 @@
+#* @vtlvariable name="sshConfig" type="com.garaio.fisheye.plugin.gerrit.ssh.SshConfiguration" *#
+#* @vtlvariable name="message" type="java.lang.String" *#
+<html>
+<head>
+    <meta name='profile.tab.key' content='com.garaio.fisheye.plugin.gerrit:gerrit-config-servlet'/>
+</head>
+<body>
+<div>
+    <form action="./config" method="post">
+        <table class="dialog-prefs" cellspacing="0">
+            <thead>
+            <tr>
+                <th colspan="2"><h3>SSH Settings for Gerrit Code Review Access</h3></th>
+            </tr>
+            <tr>
+                <th colspan="2"><span style="color:red">${message}</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="tdLabel"><label for="hostName" class="label">Host Name:</label></td>
+                <td><input type="text" name="hostName" value="${sshConfig.getHostName()}" id="hostName"/></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="port" class="label">Port:</label></td>
+                <td><input type="text" name="port" value="${sshConfig.getPort()}" id="port"/></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="userName" class="label">User Name:</label></td>
+                <td><input type="text" name="userName" value="${sshConfig.getUserName()}" id="userName"/></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="privateKey" class="label">Private Key:</label></td>
+                <td><textarea name="privateKey" id="privateKey" rows=20 cols=80>${sshConfig.getPrivateKey()}</textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="action"><input type="submit" value="Save"/><input type="reset" value="Cancel" onclick="location.href='./config';" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -32,7 +32,7 @@ public class SshCommandExecutor {
 
             boolean authOk = conn.authenticateWithPublicKey(configuration.getUserName(), configuration.getPrivateKey().toCharArray(), "");
             if (!authOk) {
-                throw new IOException("Authentication failed!");
+                throw new IOException("Authentication failed!");               
             }
 
             Session sess = conn.openSession();
