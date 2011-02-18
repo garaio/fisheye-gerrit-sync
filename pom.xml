@@ -12,8 +12,8 @@
         <url>http://www.garaio.com/</url>
     </organization>
 
-    <name>gerritSync</name>
-    <description>Automatically synchronized projects from a Gerrit Code Review Instance to FishEye Repositories.</description>
+    <name>FishEye-Gerrit Sync</name>
+    <description>Automatically synchronizes projects from a Gerrit Code Review instance to FishEye repositories.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
