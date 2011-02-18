@@ -27,8 +27,6 @@ public class SyncGerritProjectsServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean hadError = false;
-
         PrintWriter writer = response.getWriter();
 
         Set<String> fishEyeRepoNames = repositoryAdminService.getNames();
@@ -47,7 +45,6 @@ public class SyncGerritProjectsServlet extends HttpServlet {
                     writer.printf("SUCCESS: Added Repository '%1$s' for gerrit:%2$s\n", fishEyeRepoName, gerritRepoName);
                 } catch (Exception e) {
                     writer.printf("ERROR: Could not add Repository '%1$s' for gerrit:%2$s: %3$s\n", fishEyeRepoName, gerritRepoName, e.toString());
-                    hadError = true;
                 }
             } else {
                 fishEyeRepoNames.remove(fishEyeRepoName);
@@ -75,13 +72,7 @@ public class SyncGerritProjectsServlet extends HttpServlet {
                 writer.printf("SUCCESS: Removed Repository '%1$s'\n", remainingFishEyeRepoName);
             } catch (Exception e) {
                 writer.printf("ERROR: Could not delete Repository '%1$s': %2$s\n", remainingFishEyeRepoName, e.toString());
-                hadError = true;
             }
-        }
-
-        String s;
-        if (hadError) {
-            response.setStatus(500);
         }
     }
 
