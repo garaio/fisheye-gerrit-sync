@@ -7,7 +7,7 @@
 
     <web-item key="config-link" section="system.admin/global">
        <link>/plugins/servlet/com.garaio.fisheye.gerrit/config</link>
-       <label key="Gerrit Configuration"/>
+       <label key="Gerrit Code Review Sync"/>
     </web-item>
 
     <servlet name="${project.artifactId}" class="com.garaio.fisheye.plugin.gerrit.SyncGerritProjectsServlet" key="gerrit-sync-servlet">

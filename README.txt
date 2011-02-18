@@ -1,13 +1,21 @@
-You have successfully created a plugin using the Fisheye/Crucible plugin archetype!
+1. General Description
+This Plugin for Atlassian FishEye (www.atlassian.com/fisheye) allows to automatically synchronize all projects
+available in a Gerrit Code Review (code.google.com/p/gerrit/) to FishEye repositories. This makes it easier to use
+FishEye as a repository browser for a whole Gerrit Code Review installation.
 
-Here are the SDK commands you'll use immediately:
+2. Installation
+To install, please drop the plugin jar file into WEB-INF/lib and restart FishEye.
 
-* atlas-run   -- installs this plugin into Fisheye/Crucible and starts it on http://localhost:3990/fecru
-* atlas-debug -- same as atlas-run, but allows a debugger to attach at port 5005
-* atlas-cli   -- after atlas-run or atlas-debug, opens a Maven command line window:
-                 - 'pi' reinstalls the plugin into the running Fisheye/Crucible instance
-* atlas-help  -- prints description for all commands in the SDK
+3. Configuration
+Once the plugin is installed, a new option appears in the Administration area: "Gerrit Code Review Sync".
+On this page, enter the details used to contact your Gerrit Code Review server. Only the default private/public key
+authentication mode is supported.
+The configuration will be validated when you save it.
 
-Full documentation is always available at:
+4. Keeping in sync
+On the Gerrit Configuration page, you will find a link "Sync Gerrit Code Review projects ... now". Use this URL at any
+time to trigger the synchronization. This does not require any specific credentials and can therefore easily be called
+from a script to provide a regular sync.
+The sync page will log any changes it has made and report any errors it has encountered.
 
-http://confluence.atlassian.com/display/DEVNET/Developing+your+Plugin+using+the+Atlassian+Plugin+SDK
+

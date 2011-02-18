@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.garaio.fisheye.plugin.gerrit</groupId>
-    <artifactId>autoRepositoryAdd</artifactId>
+    <artifactId>gerritSync</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <organization>
@@ -12,8 +12,8 @@
         <url>http://www.garaio.com/</url>
     </organization>
 
-    <name>autoRepositoryAdd</name>
-    <description>Automatically adds all Projects from a Gerrit Code Review Instance as FishEye Repositories.</description>
+    <name>gerritSync</name>
+    <description>Automatically synchronized projects from a Gerrit Code Review Instance to FishEye Repositories.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
